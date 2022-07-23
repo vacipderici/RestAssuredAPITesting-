@@ -12,10 +12,10 @@ import org.testng.annotations.Test;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import static org.hamcrest.Matchers.emptyString;
-import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.*;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class _2ValidatableResponseDemo {
@@ -55,6 +55,24 @@ public class _2ValidatableResponseDemo {
                         OrderingComparison.comparesEqualTo(LocalDate.now()))
                 .header("x-ratelimit-limit" ,
                         response -> greaterThan(response.header("x-ratelimit-remaining")));
+
+
+    }
+
+    Map<String,String> expectedHeaders = Map.of("content-encoding","gzip",
+            "access-control-allow-origin","*"
+            );
+
+    @Test
+    public void usingMapsToTestHeaders(){
+        RestAssured.get(BASE_URL)
+                .then()
+                .headers("content-encoding","gzip",
+                        "acsess-control-allow-origin",   "*",
+                        "cache-control", contains("public"))
+                .headers(expectedHeaders);
+
+
 
 
     }
