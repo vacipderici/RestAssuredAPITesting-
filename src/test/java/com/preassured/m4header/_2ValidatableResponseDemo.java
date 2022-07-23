@@ -18,9 +18,12 @@ public class _2ValidatableResponseDemo {
     public void basicValidatableExample(){
      RestAssured.get(BASE_URL)
                 .then()
-                .statusCode(200)
-                .contentType(ContentType.JSON)
-                .header("x-ratelimit-limit","60");
+                .assertThat()
+                  .statusCode(200)
+                .and()
+                  .contentType(ContentType.JSON)
+                .and().assertThat()
+                    .header("x-ratelimit-limit","60");
 
     }
 }
