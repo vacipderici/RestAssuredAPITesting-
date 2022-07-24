@@ -72,8 +72,6 @@ public class _2ValidatableResponseDemo {
                         "cache-control", contains("public"))
                 .headers(expectedHeaders);
 
-
-
-
     }
+
 }
