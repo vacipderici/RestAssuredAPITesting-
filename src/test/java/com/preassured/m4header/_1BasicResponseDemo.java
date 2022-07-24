@@ -14,7 +14,7 @@ import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class _1BasicResponseDemo {
-    public  static final String BASE_URL ="https://api.github.com";
+    public  static final String BASE_URL ="https://api.github.com/";
     Response response = RestAssured.get(BASE_URL);
 
     @Test
