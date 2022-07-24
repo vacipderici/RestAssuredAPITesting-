@@ -5,8 +5,8 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import org.testng.annotations.Test;
-
 import java.util.Map;
+
 
 public class _0BasicResponseBodyDemo {
 
@@ -37,6 +37,19 @@ public class _0BasicResponseBodyDemo {
         System.out.println(value3);
         System.out.println(submap3);
 
+        //assertEquals(value,60);
+        //assertEquals(value2,0);
+    }
+
+    @Test
+    public void  castingFailure(){
+        JsonPath jPath = RestAssured.get(BASE_URL).body().jsonPath();
+
+        Map<String, String> isNull = jPath.get("incorrect.path"); // returns Null-
+        int aMap = jPath.get("resources-core");                 //ClassCastException
+        String value = jPath.get("resources.get.limit");         //ClassCastException
+
 
     }
+
 }
