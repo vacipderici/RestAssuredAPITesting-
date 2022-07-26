@@ -7,8 +7,7 @@ import org.testng.annotations.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.Matchers.lessThanOrEqualTo;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 
 public class _2ValidatableNestedBodyDemo {
 
@@ -27,6 +26,6 @@ public class _2ValidatableNestedBodyDemo {
                     .body("limit",equalTo(10))
                     .body("remaining", lessThanOrEqualTo("0"))
                 .noRootPath()
-                    .body("resources.graphql.limit", is("0"));
+                    .body("resources.graphql.limit", is(0));
     }
 }
