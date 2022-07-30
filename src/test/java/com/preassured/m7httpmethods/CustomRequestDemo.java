@@ -14,12 +14,12 @@ public class CustomRequestDemo {
         //both equivelant to RestAssured.get(...)
         RestAssured.request(Method.GET,BASE_URL)
                 .then()
-                .statusCode()
+                .statusCode(200)
                 .body(containsString("current_user_url"));
 
         RestAssured.get(BASE_URL)
                 .then()
-                .statusCode()
+                .statusCode(200)
                 .body(containsString("current_user_url"));
     }
     @Test
